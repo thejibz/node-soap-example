@@ -26,5 +26,12 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
+RUN npm config set proxy ""
+RUN npm config set https-proxy ""
+ENV http_proxy=""
+ENV HTTP_PROXY=""
+ENV https_proxy=""
+ENV HTTPS_PROXY=""
+
+EXPOSE 8086
 CMD [ "npm", "start" ]
